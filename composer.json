@@ -8,6 +8,8 @@
     },
 
     "autoload": {
-        "Routing\\" : "src/"
+        "psr-4": {
+            "Routing\\" : "src/"
+        }
     }
 }
