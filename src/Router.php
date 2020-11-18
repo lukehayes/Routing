@@ -1,7 +1,7 @@
 <?php
 namespace Routing;
 
-use Routing\Interface\RouterInterface;
+use Routing\Interfaces\RouterInterface;
 
 class Router implements RouterInterface
 {
