@@ -1,8 +1,12 @@
 <?php
 namespace Routing;
 
-class Router
+use Routing\Interface\RouterInterface;
+
+class Router implements RouterInterface
 {
-    // TODO Implement.
+    public function handle() : void
+    {
+    }
 }
 
