@@ -45,15 +45,5 @@ class Router implements RouterInterface
         $response = new Response($attributes["_route"]);
         $response->send();
     }
-
-    public function get($path)
-    {
-        // TODO
-    }
-
-    public function post($path)
-    {
-        // TODO
-    }
 }
 
