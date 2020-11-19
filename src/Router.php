@@ -3,7 +3,11 @@ namespace Routing;
 
 use Routing\Interfaces\RouterInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\Routing\Route;
+use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\Routing\RequestContext;
 
 class Router implements RouterInterface
 {
@@ -29,7 +33,17 @@ class Router implements RouterInterface
 
     public function handle() : void
     {
-        // TODO
+        $this->routes->add('home', new Route("/") , []);
+        $this->routes->add('hello', new Route("/hello") , []);
+
+        $context = new RequestContext();
+        $context->fromRequest($this->request);
+        $matcher = new UrlMatcher($this->routes, $context);
+
+        $attributes = $matcher->match($this->request->getPathInfo());
+
+        $response = new Response($attributes["_route"]);
+        $response->send();
     }
 
     public function get($path)
